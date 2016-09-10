@@ -43,6 +43,10 @@ void draw()
   quad(450, 200, 450, 450, 520, 367, 520, 117); // right face of soren
   fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
   quad(450, 200, 200, 200, 300, 117, 520, 117); // top face of soren
+
+  textSize(36);
+  text("Click to roll the dice. :) ", 100, 75);
+
   quad(900, 200, 900, 450, 970, 367, 970, 117); // right face of carly
   fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
   quad(900, 200, 650, 200, 750, 117, 970, 117); // top face of carly
