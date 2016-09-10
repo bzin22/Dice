@@ -2,15 +2,17 @@
 // Bryan Zin - Block 3: Mr. Simon
 
 BigDie soren;
+AnotherDie carly;
 int bigCount = 0; // counts the number of big dice
 int count = 0; // counts the number of small dice
-int sum = 0;
+int sum = 0; // adds up all dice
 void setup()
 {
   background(71,62,62);
-  size(700, 700);
+  size(1200, 700);
   noLoop();
   soren = new BigDie(200,200);
+  carly = new AnotherDie(650,200);
 }
 
 void draw()
@@ -18,14 +20,23 @@ void draw()
   background(71,62,62);
   soren.roll();
   soren.show();
+  carly.roll();
+  carly.show();
   int total, littleTotal;
   total = bigCount;
   littleTotal = count;
   sum = total + littleTotal;
+  stroke(0);
+  quad(450, 200, 450, 450, 520, 367, 520, 117); // right face of soren
+  fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
+  quad(450, 200, 200, 200, 300, 117, 520, 117); // top face of soren
+  quad(900, 200, 900, 450, 970, 367, 970, 117); // right face of carly
+  fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
+  quad(900, 200, 650, 200, 750, 117, 970, 117); // top face of carly
   textSize(36);
-  text("Total Big Dice = "+ total, 50, 50);
-  text("Total Little Dice = "+ littleTotal, 50, 100);
-  text("Total Sum = "+ sum, 50, 150); 
+  text("Total Big Dice = "+ total, 50, 500);
+  text("Total Little Dice = "+ littleTotal, 50, 550);
+  text("Total Sum = "+ sum, 50, 600); 
   bigCount = 0; 
   count = 0;
   sum = 0;
@@ -56,7 +67,7 @@ class BigDie
   void show()
   {
     fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
-    rect(200, 200, 250, 250,10);
+    rect(200, 200, 250, 250);
     
     Die one, two, three, four, five, six;
     if (LittleDie == 1)
@@ -130,6 +141,114 @@ class BigDie
   }
   
 }
+
+
+//////////////////////////////// Second Die ///////////////////////////////////////////////
+
+
+class AnotherDie 
+{
+  int myX, myY, LittleDie;
+  AnotherDie(int x, int y)
+  {
+    myX = x;
+    myY = y;
+    roll();
+  }
+  void roll()
+  {
+   LittleDie = (int)(Math.random()*6)+1;
+  }
+  void show()
+  {
+    fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
+    rect(650, 200, 250, 250);
+    
+    Die one, two, three, four, five, six;
+    if (LittleDie == 1)
+    {
+      one = new Die(750,300);
+      one.show();
+      
+    }  
+    if (LittleDie == 2)
+    {
+      one = new Die(700,250);
+      six = new Die(800,350);
+      one.show();
+      six.show();
+      
+    }  
+   if (LittleDie == 3)
+   {
+      one = new Die(750,300);
+      two = new Die(830,300);
+      three = new Die(670,300);
+      one.show();
+      two.show(); 
+      three.show();
+      
+   }
+   if (LittleDie == 4)
+    {
+      fill(255,0,0);
+      one = new Die(700,250);
+      two = new Die(800,250);
+      three = new Die(700,350);
+      four = new Die(800,350);
+      one.show();
+      two.show();
+      three.show();
+      four.show();
+      
+    }  
+    if (LittleDie == 5)
+   {
+      one = new Die(750,300);
+      two = new Die(830,300);
+      three = new Die(670,300);
+      four = new Die(750,220);
+      five = new Die(750,380);
+      one.show();
+      two.show(); 
+      three.show();
+      four.show();
+      five.show();
+      
+   }
+   if (LittleDie == 6)
+   {
+      one = new Die(750,250);
+      two = new Die(830,250);
+      three = new Die(670,250);
+      four = new Die(750,350);
+      five = new Die(830,350);
+      six = new Die(670,350); 
+      one.show();
+      two.show(); 
+      three.show();
+      four.show();
+      five.show();
+      six.show();
+      
+   }
+   
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ////////////////////////////////////////// Little dice stuff ///////////////////////////////////////////////////////
