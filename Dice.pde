@@ -1,10 +1,10 @@
-
-
 // AP Computer Programming - Dice Assignment
 // Bryan Zin - Block 3: Mr. Simon
 
 BigDie soren;
-
+int bigCount = 0; // counts the number of big dice
+int count = 0; // counts the number of small dice
+int sum = 0;
 void setup()
 {
   background(71,62,62);
@@ -15,10 +15,20 @@ void setup()
 
 void draw()
 {
-	soren.roll();
-	soren.show();
-  /*int total = bigCount + count;
-  text(Total, 10, 10);*/	
+  background(71,62,62);
+  soren.roll();
+  soren.show();
+  int total, littleTotal;
+  total = bigCount;
+  littleTotal = count;
+  sum = total + littleTotal;
+  textSize(36);
+  text("Total Big Dice = "+ total, 50, 50);
+  text("Total Little Dice = "+ littleTotal, 50, 100);
+  text("Total Sum = "+ sum, 50, 150); 
+  bigCount = 0; 
+  count = 0;
+  sum = 0;
 }
 
 void mousePressed()
@@ -33,7 +43,6 @@ void mousePressed()
 class BigDie 
 {
   int myX, myY, LittleDie;
-  int bigCount = 0; // counts the number of big dice
   BigDie(int x, int y)
   {
     myX = x;
@@ -46,8 +55,8 @@ class BigDie
   }
   void show()
   {
-  	fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
-  	rect(200, 200, 250, 250,10);
+    fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
+    rect(200, 200, 250, 250,10);
     
     Die one, two, three, four, five, six;
     if (LittleDie == 1)
@@ -66,12 +75,12 @@ class BigDie
     }  
    if (LittleDie == 3)
    {
-   		one = new Die(300,300);
-   		two = new Die(380,300);
-   		three = new Die(220,300);
-   		one.show();
-   		two.show(); 
-   		three.show();
+      one = new Die(300,300);
+      two = new Die(380,300);
+      three = new Die(220,300);
+      one.show();
+      two.show(); 
+      three.show();
       bigCount += 3;
    }
    if (LittleDie == 4)
@@ -89,32 +98,32 @@ class BigDie
     }  
     if (LittleDie == 5)
    {
-   		one = new Die(300,300);
-   		two = new Die(380,300);
-   		three = new Die(220,300);
-   		four = new Die(300,220);
-   		five = new Die(300,380);
-   		one.show();
-   		two.show(); 
-   		three.show();
-   		four.show();
-   		five.show();
+      one = new Die(300,300);
+      two = new Die(380,300);
+      three = new Die(220,300);
+      four = new Die(300,220);
+      five = new Die(300,380);
+      one.show();
+      two.show(); 
+      three.show();
+      four.show();
+      five.show();
       bigCount += 5;
    }
    if (LittleDie == 6)
    {
-   		one = new Die(300,250);
-   		two = new Die(380,250);
-   		three = new Die(220,250);
-   		four = new Die(300,350);
-   		five = new Die(380,350);
-   		six = new Die(220,350);	
-   		one.show();
-   		two.show(); 
-   		three.show();
-   		four.show();
-   		five.show();
-   		six.show();
+      one = new Die(300,250);
+      two = new Die(380,250);
+      three = new Die(220,250);
+      four = new Die(300,350);
+      five = new Die(380,350);
+      six = new Die(220,350); 
+      one.show();
+      two.show(); 
+      three.show();
+      four.show();
+      five.show();
+      six.show();
       bigCount += 6;
    }
    
@@ -129,7 +138,6 @@ class BigDie
 class Die // models one single dice cube
 {
   int myX, myY, face;
-  int count = 0; // counts the number of small dice
   Die(int x, int y)  
   {
     myX = x;
@@ -145,7 +153,7 @@ class Die // models one single dice cube
     fill(0);
     rect(myX, myY, 50, 50,10); // the "square" for the dice
     
-     	if (face == 1) // rolling a 1
+      if (face == 1) // rolling a 1
        {
          noStroke();
          fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
