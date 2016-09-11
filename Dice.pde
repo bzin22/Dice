@@ -52,14 +52,14 @@ void draw()
   quad(900, 200, 650, 200, 750, 117, 970, 117); // top face of carly
 
   textSize(36);
-  text("Total Big Dice = "+ total, 50, 500);
-  text("Total Little Dice = "+ littleTotal, 50, 550);
-  text("Total Sum = "+ sum, 50, 600);
+  text("Total Square Dice = "+ total, 50, 500);
+  text("Total Circle Dice = "+ littleTotal, 50, 550);
+  text("Total Sum of all Dice = "+ sum, 50, 600);
 
   textSize(36);
-  text("Total Big Dice = "+ totalTwo, 675, 500);
-  text("Total Little Dice = "+ littleTotalTwo, 675, 550);
-  text("Total Sum = "+ sumTwo, 675, 600);
+  text("Total Square Dice = "+ totalTwo, 675, 500);
+  text("Total Circle Dice = "+ littleTotalTwo, 675, 550);
+  text("Total Sum of all Dice = "+ sumTwo, 675, 600);
 
 
   bigCountTwo = 0;
